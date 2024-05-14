@@ -30,6 +30,7 @@ import { Sede } from './sede/entities/sede.entity';
 import { Tratamiento } from './tratamiento/entities/tratamiento.entity';
 import { AuthModule } from './auth/auth.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({

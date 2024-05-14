@@ -6,14 +6,8 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'varchar', length: 100 })
-    nombre: string;
-
-    @Column({ type: 'varchar', length: 100 })
-    apellido: string;
-
-    @Column({ type: 'varchar', length: 20 })
-    celular: string;
+    @Column({ type: 'varchar', length: 15 })
+    username: string;
 
     @Column({ type: 'varchar', length: 255, unique:true })
     email: string;
@@ -22,19 +16,13 @@ export class User {
     password: string;
 
     @Column({ type: 'varchar', length: 20 })
-    numDoc: string;
+    tipoDocumento: string;
 
-    @Column({ type: 'blob', nullable: true})
-    foto: Buffer;
+    @Column({ type: 'varchar', length: 20, unique:true })
+    numDoc: string;
 
     @Column({ type: 'varchar', length: 50 })
     estado: string;
-
-    @Column({ type: 'varchar', length: 10 })
-    genero: string;
-
-    @Column({ type: 'varchar', length: 20 })
-    tipoDocumento: string;
 
     @Column({ type: 'varchar', length: 50, default: 'user' })
     rol: string;

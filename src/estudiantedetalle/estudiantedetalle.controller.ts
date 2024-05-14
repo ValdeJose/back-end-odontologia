@@ -11,8 +11,8 @@ export class EstudiantedetalleController {
   constructor(private readonly estudiantedetalleService: EstudiantedetalleService) {}
 
   @Post()
-  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
-  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
+    @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+    @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createEstudiantedetalleDto: CreateEstudiantedetalleDto) {
     return this.estudiantedetalleService.create(createEstudiantedetalleDto);
   }

@@ -59,4 +59,5 @@ export class Paciente {
   
     @OneToMany(() => Tratamiento, tratamiento => tratamiento.paciente)
     tratamientos: Tratamiento[];
+    
 }

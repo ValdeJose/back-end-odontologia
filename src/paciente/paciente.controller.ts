@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PacienteService } from './paciente.service';
 import { CreatePacienteDto } from './dto/create-paciente.dto';
 import { UpdatePacienteDto } from './dto/update-paciente.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Paciente')
 @ApiBearerAuth()
@@ -11,6 +11,8 @@ export class PacienteController {
   constructor(private readonly pacienteService: PacienteService) {}
 
   @Post()
+  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createPacienteDto: CreatePacienteDto) {
     return this.pacienteService.create(createPacienteDto);
   }
