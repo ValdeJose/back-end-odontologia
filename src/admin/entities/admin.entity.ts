@@ -14,8 +14,4 @@ export class Admin {
   
     @Column({ nullable: true })
     firmaDigital: Buffer;
-  
-    @OneToOne(() => User)
-    @JoinColumn()
-    usuario: User;
 }

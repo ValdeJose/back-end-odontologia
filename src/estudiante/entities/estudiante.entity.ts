@@ -5,16 +5,16 @@ export class Estudiante {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'varchar', length: 15 })
+    @Column({ type: 'varchar', length: 75 })
     nombre: string;
 
-    @Column({ type: 'varchar', length: 15 })
+    @Column({ type: 'varchar', length: 75 })
     apellido: string;
 
     @Column({ type: 'varchar', length: 10 })
     codigo: string;
 
-    @Column({ type: 'varchar', length: 15 })
+    @Column({ type: 'varchar', length: 60 })
     email: string;
 
     @Column({ type: 'varchar', length: 1 })
@@ -23,7 +23,7 @@ export class Estudiante {
     @Column({ type: 'varchar', length: 255, nullable: true })
     foto: string;
 
-    @Column({ type: 'varchar', length: 1 })
+    @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
 
 }

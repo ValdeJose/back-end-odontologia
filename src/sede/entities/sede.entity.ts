@@ -1,3 +1,4 @@
+import { Docentedetalle } from "src/docentedetalle/entities/docentedetalle.entity";
 import { Periodo } from "src/periodo/entities/periodo.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -20,4 +21,7 @@ export class Sede {
 
   @OneToMany(() => Periodo, periodo => periodo.sede)
   periodos: Periodo[];
+
+  @OneToMany(() => Docentedetalle, docentedetalle => docentedetalle.periodo)
+  docentedetalles: Docentedetalle[];
 }

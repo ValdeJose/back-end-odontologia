@@ -29,6 +29,7 @@ import { Periodo } from './periodo/entities/periodo.entity';
 import { Sede } from './sede/entities/sede.entity';
 import { Tratamiento } from './tratamiento/entities/tratamiento.entity';
 import { AuthModule } from './auth/auth.module';
+import { AdmindetalleModule } from './admindetalle/admindetalle.module';
 
 
 @Module({
@@ -57,6 +58,7 @@ import { AuthModule } from './auth/auth.module';
     DocentedetalleModule,
     CursoModule,
     AuthModule,
+    AdmindetalleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
