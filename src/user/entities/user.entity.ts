@@ -1,4 +1,3 @@
-import { generate } from "rxjs";
 import { Admindetalle } from "src/admindetalle/entities/admindetalle.entity";
 import { Docentedetalle } from "src/docentedetalle/entities/docentedetalle.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";

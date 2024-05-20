@@ -17,6 +17,7 @@ import { EstudiantedetalleModule } from './estudiantedetalle/estudiantedetalle.m
 import { DocentedetalleModule } from './docentedetalle/docentedetalle.module';
 import { CursoModule } from './curso/curso.module';
 import { Admin } from 'typeorm';
+import { Admini } from './admin/entities/admin.entity';
 import { Cita } from './cita/entities/cita.entity';
 import { Clase } from './clases/entities/clase.entity';
 import { Curso } from './curso/entities/curso.entity';
@@ -29,6 +30,7 @@ import { Periodo } from './periodo/entities/periodo.entity';
 import { Sede } from './sede/entities/sede.entity';
 import { Tratamiento } from './tratamiento/entities/tratamiento.entity';
 import { AuthModule } from './auth/auth.module';
+import { Admindetalle } from './admindetalle/entities/admindetalle.entity';
 import { AdmindetalleModule } from './admindetalle/admindetalle.module';
 
 
@@ -39,9 +41,9 @@ import { AdmindetalleModule } from './admindetalle/admindetalle.module';
       host: '35.188.128.37',
       port: 3306,
       username: 'root',
-      password: "~]UxAZTA-~<:&[yD",
+      password: '~]UxAZTA-~<:&[yD',
       database: 'odontologia',
-        entities: [User,Admin, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Sede, Tratamiento],
+        entities: [User,Admini, Admindetalle, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Sede, Tratamiento],
         synchronize: true
     }),
     UserModule,

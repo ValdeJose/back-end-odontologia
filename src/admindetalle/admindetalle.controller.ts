@@ -2,12 +2,17 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AdmindetalleService } from './admindetalle.service';
 import { CreateAdmindetalleDto } from './dto/create-admindetalle.dto';
 import { UpdateAdmindetalleDto } from './dto/update-admindetalle.dto';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('admindetalle')
+@ApiBearerAuth()
 @Controller('admindetalle')
 export class AdmindetalleController {
   constructor(private readonly admindetalleService: AdmindetalleService) {}
 
   @Post()
+  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createAdmindetalleDto: CreateAdmindetalleDto) {
     return this.admindetalleService.create(createAdmindetalleDto);
   }
