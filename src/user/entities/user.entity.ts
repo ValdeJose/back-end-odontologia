@@ -1,5 +1,7 @@
 import { generate } from "rxjs";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Admindetalle } from "src/admindetalle/entities/admindetalle.entity";
+import { Docentedetalle } from "src/docentedetalle/entities/docentedetalle.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -26,4 +28,11 @@ export class User {
 
     @Column({ type: 'varchar', length: 50, default: 'user' })
     rol: string;
+
+    @OneToMany(() => Docentedetalle, docentedetalle => docentedetalle.user)
+    docentedetalles: Docentedetalle[];
+
+    @OneToMany(() => Admindetalle, admindetalle => admindetalle.user)
+    admindetalles: Admindetalle[];
+
 }

@@ -1,7 +1,8 @@
+import { User } from 'src/user/entities/user.entity';
 import { Docente } from '../../docente/entities/docente.entity'; // Asegúrate de que la ruta sea correcta
 import { Periodo } from '../../periodo/entities/periodo.entity'; // Asegúrate de que la ruta sea correcta
 import { Sede } from '../../sede/entities/sede.entity'; // Asegúrate de que la ruta sea correcta
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Docentedetalle {
@@ -19,5 +20,8 @@ export class Docentedetalle {
 
   @ManyToOne(() => Sede, sede => sede.nombre, { nullable: true })
   sede: Sede;
+
+    @ManyToOne(() => User, user => user.docentedetalles, { nullable: true })
+  user: User;
 }
 
