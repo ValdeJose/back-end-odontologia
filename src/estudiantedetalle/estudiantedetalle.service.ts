@@ -12,7 +12,7 @@ export class EstudiantedetalleService {
     private readonly estudiantedetalleRepository: Repository<Estudiantedetalle>,
   ) {}
 
-  create(createEstudiantedetalleDto: CreateEstudiantedetalleDto) {
+  async create(createEstudiantedetalleDto: CreateEstudiantedetalleDto) {
     return this.estudiantedetalleRepository.save(createEstudiantedetalleDto);
   }
 

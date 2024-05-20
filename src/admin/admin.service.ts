@@ -11,7 +11,7 @@ export class AdminService {
     @InjectRepository(Admini)
     private readonly adminRepository: Repository<Admini>,
   ) {}
-  create(createAdminDto: CreateAdminDto) {
+  async create(createAdminDto: CreateAdminDto) {
     return this.adminRepository.save(createAdminDto);
   }
 

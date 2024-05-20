@@ -15,7 +15,7 @@ export class PacienteService {
     private readonly pacienteRepository: Repository<Paciente>,
   ) {}
 
-  create(createPacienteDto: CreatePacienteDto) {
+  async create(createPacienteDto: CreatePacienteDto) {
     return this.pacienteRepository.save(createPacienteDto);
   }
 

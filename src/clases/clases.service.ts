@@ -11,7 +11,7 @@ export class ClasesService {
     @InjectRepository(Clase)
     private readonly claseRepository: Repository<Clase>,
   ) {}
-  create(createClaseDto: CreateClaseDto) {
+  async create(createClaseDto: CreateClaseDto) {
     return this.claseRepository.save(createClaseDto);
   }
 

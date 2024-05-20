@@ -12,7 +12,7 @@ export class AdmindetalleService {
     private readonly admindetalleRepository: Repository<Admindetalle>,
   ) {}
 
-  create(createAdmindetalleDto: CreateAdmindetalleDto) {
+  async create(createAdmindetalleDto: CreateAdmindetalleDto) {
     return this.admindetalleRepository.save(createAdmindetalleDto);
   }
 

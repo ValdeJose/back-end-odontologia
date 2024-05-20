@@ -12,7 +12,7 @@ export class TratamientoService {
     private readonly tratamientoRepository: Repository<Tratamiento>,
   ) {}
 
-  create(createTratamientoDto: CreateTratamientoDto) {
+  async create(createTratamientoDto: CreateTratamientoDto) {
     return this.tratamientoRepository.save(createTratamientoDto);
   }
 

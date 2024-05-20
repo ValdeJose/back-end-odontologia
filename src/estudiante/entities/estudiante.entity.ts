@@ -25,5 +25,4 @@ export class Estudiante {
 
     @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
-
 }

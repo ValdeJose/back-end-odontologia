@@ -12,7 +12,7 @@ export class CitaService {
     private readonly citaRepository: Repository<Cita>,
   ) {}
 
-  create(createCitaDto: CreateCitaDto) {
+  async create(createCitaDto: CreateCitaDto) {
     return this.citaRepository.save(createCitaDto);
   }
 

@@ -12,7 +12,7 @@ export class SedeService {
     private readonly sedeRepository: Repository<Sede>,
   ) {}
 
-  create(createSedeDto: CreateSedeDto) {
+  async create(createSedeDto: CreateSedeDto) {
     return this.sedeRepository.save(createSedeDto);
   }
 

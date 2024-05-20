@@ -12,7 +12,7 @@ export class CursoService {
     @InjectRepository(Curso)
     private readonly cursoRepository: Repository<Curso>,
   ) {}
-  create(createCursoDto: CreateCursoDto) {
+  async create(createCursoDto: CreateCursoDto) {
     return this.cursoRepository.save(createCursoDto);
   }
 
