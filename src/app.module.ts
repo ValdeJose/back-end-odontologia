@@ -36,10 +36,10 @@ import { AdmindetalleModule } from './admindetalle/admindetalle.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '35.188.128.37',
       port: 3306,
       username: 'root',
-      password: "",
+      password: "~]UxAZTA-~<:&[yD",
       database: 'odontologia',
         entities: [User,Admin, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Sede, Tratamiento],
         synchronize: true
