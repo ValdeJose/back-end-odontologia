@@ -1,15 +1,15 @@
-From node:20-alphine
+FROM node:20-alpine
 
-Workdir /app
+WORKDIR /app
 
-Copy package.json
+COPY package.json
 
-Run npm install
+RUN npm install
 
-Copy ..
+COPY ..
 
-Run npm run build
+RUN npm run build
 
-Expose 3000
+EXPOSE 3000
 
-Cmd [ "npm", "run", "start"]
+CMD ["npm", "run", "start"]

@@ -6,16 +6,16 @@ export class Docente {
     @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 15 })
+  @Column({ type: 'varchar', length: 85 })
     nombre: string;
 
-    @Column({ type: 'varchar', length: 15 })
+    @Column({ type: 'varchar', length: 85 })
     apellido: string;
 
     @Column({ type: 'varchar', length: 10 })
     codigo: string;
 
-    @Column({ type: 'varchar', length: 15 })
+    @Column({ type: 'varchar', length: 125 })
     email: string;
 
     @Column({ type: 'varchar', length: 1 })
