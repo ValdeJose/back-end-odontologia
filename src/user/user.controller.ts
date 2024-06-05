@@ -10,14 +10,14 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
+  @Post('create')
   @ApiCreatedResponse({description: 'The recorded has been successfully created.'})
   @ApiForbiddenResponse({description: 'Forbidden.'})
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.userService.findAll();
   }
