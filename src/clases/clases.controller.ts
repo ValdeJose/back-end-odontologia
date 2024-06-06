@@ -25,12 +25,12 @@ export class ClasesController {
     return this.clasesService.findOne(+id);
   }
 
-  @Patch('updateby:id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateClaseDto: UpdateClaseDto) {
     return this.clasesService.update(+id, updateClaseDto);
   }
 
-  @Delete('deleteby:id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.clasesService.remove(+id);
   }

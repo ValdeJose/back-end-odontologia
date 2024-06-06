@@ -27,12 +27,12 @@ export class AdmindetalleController {
     return this.admindetalleService.findOne(+id);
   }
 
-  @Patch('updateby:id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateAdmindetalleDto: UpdateAdmindetalleDto) {
     return this.admindetalleService.update(+id, updateAdmindetalleDto);
   }
 
-  @Delete('deleteby:id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.admindetalleService.remove(+id);
   }
