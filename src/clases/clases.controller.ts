@@ -10,27 +10,27 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class ClasesController {
   constructor(private readonly clasesService: ClasesService) {}
 
-  @Post()
+  @Post('create')
   create(@Body() createClaseDto: CreateClaseDto) {
     return this.clasesService.create(createClaseDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.clasesService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.clasesService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby:id')
   update(@Param('id') id: string, @Body() updateClaseDto: UpdateClaseDto) {
     return this.clasesService.update(+id, updateClaseDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby:id')
   remove(@Param('id') id: string) {
     return this.clasesService.remove(+id);
   }

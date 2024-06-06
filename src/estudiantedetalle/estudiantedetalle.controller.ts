@@ -10,29 +10,29 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class EstudiantedetalleController {
   constructor(private readonly estudiantedetalleService: EstudiantedetalleService) {}
 
-  @Post()
+  @Post('create')
     @ApiCreatedResponse({description: 'Ingreso Exitoso'})
     @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createEstudiantedetalleDto: CreateEstudiantedetalleDto) {
     return this.estudiantedetalleService.create(createEstudiantedetalleDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.estudiantedetalleService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.estudiantedetalleService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateEstudiantedetalleDto: UpdateEstudiantedetalleDto) {
     return this.estudiantedetalleService.update(+id, updateEstudiantedetalleDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.estudiantedetalleService.remove(+id);
   }

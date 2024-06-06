@@ -10,29 +10,29 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  @Post()
+  @Post('create')
   @ApiCreatedResponse({description: 'The recorded has been successfully created.'})
   @ApiForbiddenResponse({description: 'Forbidden.'})
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.adminService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.adminService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
     return this.adminService.update(+id, updateAdminDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.adminService.remove(+id);
   }

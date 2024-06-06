@@ -10,29 +10,29 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class CitaController {
   constructor(private readonly citaService: CitaService) {}
 
-  @Post()
+  @Post('create')
   @ApiCreatedResponse({description: 'The recorded has been successfully created.'})
   @ApiForbiddenResponse({description: 'Forbidden.'})
   create(@Body() createCitaDto: CreateCitaDto) {
     return this.citaService.create(createCitaDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.citaService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.citaService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateCitaDto: UpdateCitaDto) {
     return this.citaService.update(+id, updateCitaDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.citaService.remove(+id);
   }

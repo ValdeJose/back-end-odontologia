@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PeriodoService } from './periodo.service';
 import { CreatePeriodoDto } from './dto/create-periodo.dto';
 import { UpdatePeriodoDto } from './dto/update-periodo.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Periodo')
 @ApiBearerAuth()
@@ -10,27 +10,29 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class PeriodoController {
   constructor(private readonly periodoService: PeriodoService) {}
 
-  @Post()
+  @Post('create')
+  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createPeriodoDto: CreatePeriodoDto) {
     return this.periodoService.create(createPeriodoDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.periodoService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.periodoService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updatePeriodoDto: UpdatePeriodoDto) {
     return this.periodoService.update(+id, updatePeriodoDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.periodoService.remove(+id);
   }

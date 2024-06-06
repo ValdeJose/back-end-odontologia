@@ -10,29 +10,29 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class CursoController {
   constructor(private readonly cursoService: CursoService) {}
 
-  @Post()
+  @Post('create')
   @ApiCreatedResponse({description: 'Ingreso Exitoso'})
   @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createCursoDto: CreateCursoDto) {
     return this.cursoService.create(createCursoDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.cursoService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.cursoService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateCursoDto: UpdateCursoDto) {
     return this.cursoService.update(+id, updateCursoDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.cursoService.remove(+id);
   }

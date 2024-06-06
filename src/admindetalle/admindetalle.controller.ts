@@ -10,29 +10,29 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 export class AdmindetalleController {
   constructor(private readonly admindetalleService: AdmindetalleService) {}
 
-  @Post()
+  @Post('create')
   @ApiCreatedResponse({description: 'Ingreso Exitoso'})
   @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createAdmindetalleDto: CreateAdmindetalleDto) {
     return this.admindetalleService.create(createAdmindetalleDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.admindetalleService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.admindetalleService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby:id')
   update(@Param('id') id: string, @Body() updateAdmindetalleDto: UpdateAdmindetalleDto) {
     return this.admindetalleService.update(+id, updateAdmindetalleDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby:id')
   remove(@Param('id') id: string) {
     return this.admindetalleService.remove(+id);
   }

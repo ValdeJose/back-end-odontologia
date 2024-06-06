@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TratamientoService } from './tratamiento.service';
 import { CreateTratamientoDto } from './dto/create-tratamiento.dto';
 import { UpdateTratamientoDto } from './dto/update-tratamiento.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Tratamiento')
 @ApiBearerAuth()
@@ -10,27 +10,29 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class TratamientoController {
   constructor(private readonly tratamientoService: TratamientoService) {}
 
-  @Post()
+  @Post('create')
+  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createTratamientoDto: CreateTratamientoDto) {
     return this.tratamientoService.create(createTratamientoDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.tratamientoService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.tratamientoService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateTratamientoDto: UpdateTratamientoDto) {
     return this.tratamientoService.update(+id, updateTratamientoDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.tratamientoService.remove(+id);
   }

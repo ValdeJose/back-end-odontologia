@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { SedeService } from './sede.service';
 import { CreateSedeDto } from './dto/create-sede.dto';
 import { UpdateSedeDto } from './dto/update-sede.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Sede')
 @ApiBearerAuth()
@@ -10,27 +10,29 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class SedeController {
   constructor(private readonly sedeService: SedeService) {}
 
-  @Post()
+  @Post('create')
+  @ApiCreatedResponse({description: 'Ingreso Exitoso'})
+  @ApiForbiddenResponse({description: 'Ingreso Prohibido'})
   create(@Body() createSedeDto: CreateSedeDto) {
     return this.sedeService.create(createSedeDto);
   }
 
-  @Get()
+  @Get('getall')
   findAll() {
     return this.sedeService.findAll();
   }
 
-  @Get(':id')
+  @Get('getby/:id')
   findOne(@Param('id') id: string) {
     return this.sedeService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateby/:id')
   update(@Param('id') id: string, @Body() updateSedeDto: UpdateSedeDto) {
     return this.sedeService.update(+id, updateSedeDto);
   }
 
-  @Delete(':id')
+  @Delete('deleteby/:id')
   remove(@Param('id') id: string) {
     return this.sedeService.remove(+id);
   }
