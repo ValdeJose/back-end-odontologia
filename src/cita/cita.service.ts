@@ -4,6 +4,8 @@ import { UpdateCitaDto } from './dto/update-cita.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cita } from './entities/cita.entity';
 import { Repository } from 'typeorm';
+import { EstudiantedetalleService } from 'src/estudiantedetalle/estudiantedetalle.service';
+import { Paciente } from 'src/paciente/entities/paciente.entity';
 
 @Injectable()
 export class CitaService {
@@ -13,6 +15,7 @@ export class CitaService {
   ) {}
 
   async create(createCitaDto: CreateCitaDto) {
+
     return this.citaRepository.save(createCitaDto);
   }
 

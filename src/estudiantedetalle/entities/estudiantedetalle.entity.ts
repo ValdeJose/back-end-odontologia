@@ -2,15 +2,14 @@ import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typ
 import { Estudiante } from "../../estudiante/entities/estudiante.entity";
 import { Curso } from "../../curso/entities/curso.entity";
 import { Periodo } from "../../periodo/entities/periodo.entity";
-import { User } from "../../user/entities/user.entity";
 import { Paciente } from "src/paciente/entities/paciente.entity";
 
 @Entity()
 export class Estudiantedetalle {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @ManyToOne(() => Estudiante, estudiante => estudiante.codigo)
+    
+    @ManyToOne(() => Estudiante, estudiante => estudiante.id)
     estudiante: Estudiante;
 
     @ManyToOne(() => Curso, curso => curso.nombreCurso)
@@ -19,10 +18,16 @@ export class Estudiantedetalle {
     @ManyToOne(() => Periodo, periodo => periodo.nombre)
     periodo: Periodo;
 
-    @OneToOne(() => User, user => user.rol)
-    user: User;
+    @Column({ type: 'int', default: 0 })
+    totalPacientesRegistrados: number;
 
-    @ManyToOne(() => Paciente, paciente => paciente.id)
-    paciente: Paciente;
+    @Column({ type: 'int', default: 0 })
+    citasRegistradas: number;
+
+    @Column({ type: 'int', default: 0 })
+    citasCanceladas: number;
+
+    @Column({ type: 'int', default: 0 })
+    citasAtendidas: number;
 }
 

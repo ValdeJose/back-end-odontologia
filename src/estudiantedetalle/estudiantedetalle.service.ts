@@ -31,4 +31,5 @@ export class EstudiantedetalleService {
   remove(id: number) {
     return this.estudiantedetalleRepository.delete(id);
   }
+
 }

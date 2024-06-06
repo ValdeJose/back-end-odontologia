@@ -1,6 +1,7 @@
-import { Admindetalle } from "src/admindetalle/entities/admindetalle.entity";
-import { Docentedetalle } from "src/docentedetalle/entities/docentedetalle.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Admini } from "src/admin/entities/admin.entity";
+import { Docente } from "src/docente/entities/docente.entity";
+import { Estudiante } from "src/estudiante/entities/estudiante.entity";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -16,22 +17,19 @@ export class User {
     @Column({ type: 'varchar', length: 20 })
     password: string;
 
-    @Column({ type: 'varchar', length: 20 })
-    tipoDocumento: string;
-
-    @Column({ type: 'varchar', length: 20, unique:true })
-    numDoc: string;
-
     @Column({ type: 'varchar', length: 50 })
     estado: string;
 
-    @Column({ type: 'varchar', length: 50, default: 'user' })
+    @Column({ type: 'varchar', length: 25})
     rol: string;
 
-    @OneToMany(() => Docentedetalle, docentedetalle => docentedetalle.user)
-    docentedetalles: Docentedetalle[];
+    @OneToOne(() => Estudiante, estudiante => estudiante.user, { nullable: true })
+    estudiante: Estudiante;
 
-    @OneToMany(() => Admindetalle, admindetalle => admindetalle.user)
-    admindetalles: Admindetalle[];
+    @OneToOne(() => Docente, docente => docente.user, { nullable: true })
+    docente: Docente;
+
+    @OneToOne(() => Admini, admin => admin.user, { nullable: true })
+    admin: Admini;
 
 }

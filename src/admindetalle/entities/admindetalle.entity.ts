@@ -10,9 +10,6 @@ export class Admindetalle {
     @Column({ type: 'varchar', length: 255 })
     detalle: string;
 
-    @ManyToOne(() => User, user => user.admindetalles)
-    user: User;
-
     @ManyToOne(() => Admini, admin => admin.admindetalles)
     admin: Admini;
 }

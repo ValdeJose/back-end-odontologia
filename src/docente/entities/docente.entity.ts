@@ -1,5 +1,6 @@
 import { Docentedetalle } from "src/docentedetalle/entities/docentedetalle.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/entities/user.entity";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Docente {
@@ -15,8 +16,11 @@ export class Docente {
     @Column({ type: 'varchar', length: 10 })
     codigo: string;
 
-    @Column({ type: 'varchar', length: 125 })
+    @Column({ type: 'varchar', length: 255})
     email: string;
+
+    @Column({ type: 'varchar', length: 12})
+    phone: string;
 
     @Column({ type: 'varchar', length: 1 })
     genero: string;
@@ -32,5 +36,8 @@ export class Docente {
 
     @OneToMany(() => Docentedetalle, docentedetalle => docentedetalle.docente)
     detalles: Docentedetalle[];
+
+    @OneToOne(() => User, user => user.docente)
+    user: User;
 
 }

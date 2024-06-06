@@ -21,7 +21,5 @@ export class Docentedetalle {
   @ManyToOne(() => Sede, sede => sede.nombre, { nullable: true })
   sede: Sede;
 
-    @ManyToOne(() => User, user => user.docentedetalles, { nullable: true })
-  user: User;
 }
 

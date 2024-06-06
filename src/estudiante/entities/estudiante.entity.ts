@@ -1,21 +1,25 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/entities/user.entity";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Estudiante {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'varchar', length: 75 })
+    @Column({ type: 'varchar', length: 85 })
     nombre: string;
 
-    @Column({ type: 'varchar', length: 75 })
+    @Column({ type: 'varchar', length: 85 })
     apellido: string;
 
     @Column({ type: 'varchar', length: 10 })
     codigo: string;
 
-    @Column({ type: 'varchar', length: 60 })
+    @Column({ type: 'varchar', length: 255, unique:true })
     email: string;
+
+    @Column({ type: 'varchar', length: 12})
+    phone: string;
 
     @Column({ type: 'varchar', length: 1 })
     genero: string;
@@ -25,4 +29,7 @@ export class Estudiante {
 
     @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
+
+    @OneToOne(() => User, user => user.estudiante)
+    user: User;
 }
