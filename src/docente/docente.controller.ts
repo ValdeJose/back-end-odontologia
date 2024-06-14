@@ -6,7 +6,7 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from
 
 @ApiTags('docente')
 @ApiBearerAuth()
-@Controller('docente')
+@Controller('ToothLinkAPI/docente')
 export class DocenteController {
   constructor(private readonly docenteService: DocenteService) {}
 

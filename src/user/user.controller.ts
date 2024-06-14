@@ -4,9 +4,9 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('User')
+@ApiTags('user')
 @ApiBearerAuth()
-@Controller('user')
+@Controller('ToothLinkAPI/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

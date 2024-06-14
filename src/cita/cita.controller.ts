@@ -4,9 +4,9 @@ import { CreateCitaDto } from './dto/create-cita.dto';
 import { UpdateCitaDto } from './dto/update-cita.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Cita')
+@ApiTags('cita')
 @ApiBearerAuth()
-@Controller('cita')
+@Controller('ToothLinkAPI/cita')
 export class CitaController {
   constructor(private readonly citaService: CitaService) {}
 

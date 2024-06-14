@@ -4,9 +4,9 @@ import { CreatePeriodoDto } from './dto/create-periodo.dto';
 import { UpdatePeriodoDto } from './dto/update-periodo.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Periodo')
+@ApiTags('periodo')
 @ApiBearerAuth()
-@Controller('periodo')
+@Controller('ToothLinkAPI/periodo')
 export class PeriodoController {
   constructor(private readonly periodoService: PeriodoService) {}
 

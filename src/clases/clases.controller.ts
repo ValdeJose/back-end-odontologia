@@ -4,9 +4,9 @@ import { CreateClaseDto } from './dto/create-clase.dto';
 import { UpdateClaseDto } from './dto/update-clase.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Clases')
+@ApiTags('clases')
 @ApiBearerAuth()
-@Controller('clases')
+@Controller('ToothLinkAPI/clases')
 export class ClasesController {
   constructor(private readonly clasesService: ClasesService) {}
 

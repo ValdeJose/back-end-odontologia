@@ -4,9 +4,9 @@ import { CreateEstudiantedetalleDto } from './dto/create-estudiantedetalle.dto';
 import { UpdateEstudiantedetalleDto } from './dto/update-estudiantedetalle.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('estudiantedetalle')
+@ApiTags('estudianteDetalle')
 @ApiBearerAuth()
-@Controller('estudiantedetalle')
+@Controller('ToothLinkAPI/estudiantedetalle')
 export class EstudiantedetalleController {
   constructor(private readonly estudiantedetalleService: EstudiantedetalleService) {}
 

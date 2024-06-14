@@ -4,9 +4,9 @@ import { CreateAdmindetalleDto } from './dto/create-admindetalle.dto';
 import { UpdateAdmindetalleDto } from './dto/update-admindetalle.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('admindetalle')
+@ApiTags('adminDetalle')
 @ApiBearerAuth()
-@Controller('admindetalle')
+@Controller('ToothLinkAPI/admindetalle')
 export class AdmindetalleController {
   constructor(private readonly admindetalleService: AdmindetalleService) {}
 

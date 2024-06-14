@@ -4,9 +4,9 @@ import { CreatePacienteDto } from './dto/create-paciente.dto';
 import { UpdatePacienteDto } from './dto/update-paciente.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Paciente')
+@ApiTags('paciente')
 @ApiBearerAuth()
-@Controller('paciente')
+@Controller('ToothLinkAPI/paciente')
 export class PacienteController {
   constructor(private readonly pacienteService: PacienteService) {}
 

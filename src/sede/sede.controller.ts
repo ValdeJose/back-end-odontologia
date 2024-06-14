@@ -4,9 +4,9 @@ import { CreateSedeDto } from './dto/create-sede.dto';
 import { UpdateSedeDto } from './dto/update-sede.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Sede')
+@ApiTags('sede')
 @ApiBearerAuth()
-@Controller('sede')
+@Controller('ToothLinkAPI/sede')
 export class SedeController {
   constructor(private readonly sedeService: SedeService) {}
 

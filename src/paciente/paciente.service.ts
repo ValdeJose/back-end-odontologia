@@ -34,4 +34,5 @@ export class PacienteService {
   remove(id: number) {
     return this.pacienteRepository.delete(id);
   }
+
 }

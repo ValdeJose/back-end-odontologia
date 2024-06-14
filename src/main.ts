@@ -8,13 +8,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Documentation Api')
-    .setDescription('Descripcion de Apis  ')
+    .setTitle('ToothLinkAPI')
+    .setDescription('ToothLinkAPI ofrece una amplia gama de endpoints para simplificar la integración de sistemas de gestión dental, permitiendo a los desarrolladores acceder a datos de pacientes, citas, tratamientos y más. ToothLinkAPI facilita la construcción de aplicaciones dentales robustas y la mejora de la experiencia del usuario. Explore nuestra documentación para comenzar a integrar ToothLinkAPI en su aplicación dental hoy mismo.')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('ToothLinkAPI/docs', app, document);
 
   const corsOptions: CorsOptions = {
     origin: '*',
