@@ -1,5 +1,5 @@
 # Usar una imagen base oficial de Node.js
-FROM node:20-alpine
+FROM node:20
 
 # Crear un directorio de trabajo
 WORKDIR /app
