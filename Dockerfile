@@ -23,4 +23,4 @@ EXPOSE 8080
 ENV PORT 8080
 
 # Comando para iniciar la aplicación
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
