@@ -19,5 +19,8 @@ RUN npm run build
 # Exponer el puerto que la aplicación va a usar
 EXPOSE 8080
 
+# Definir la variable de entorno para el puerto
+ENV PORT 8080
+
 # Comando para iniciar la aplicación
 CMD ["npm", "run", "start"]
