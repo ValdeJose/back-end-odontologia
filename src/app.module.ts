@@ -32,6 +32,8 @@ import { Tratamiento } from './tratamiento/entities/tratamiento.entity';
 import { AuthModule } from './auth/auth.module';
 import { Admindetalle } from './admindetalle/entities/admindetalle.entity';
 import { AdmindetalleModule } from './admindetalle/admindetalle.module';
+import { RolesModule } from './roles/roles.module';
+import { Role } from './roles/entities/role.entity';
 
 
 @Module({
@@ -42,8 +44,8 @@ import { AdmindetalleModule } from './admindetalle/admindetalle.module';
       port: 3306,
       username: 'root',
       password: '~]UxAZTA-~<:&[yD',
-      database: 'odontologia',
-        entities: [User,Admini, Admindetalle, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Sede, Tratamiento],
+      database: 'dentito',
+        entities: [User,Admini, Admindetalle, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Role ,Sede, Tratamiento],
         synchronize: true
     }),
     AdminModule,
@@ -61,6 +63,7 @@ import { AdmindetalleModule } from './admindetalle/admindetalle.module';
     SedeModule,
     TratamientoModule,
     UserModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

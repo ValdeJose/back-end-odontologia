@@ -14,7 +14,7 @@ export class AuthService {
     ) {}
 
     async login({email, password}:LoginDto){
-        const user = await this.userService.findonebyEmail(email)
+        const user = await this.userService.findOnebyEmail(email)
         if (!user) {
             throw new UnauthorizedException('correo no valido')
         }

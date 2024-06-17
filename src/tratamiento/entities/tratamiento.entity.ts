@@ -13,6 +13,4 @@ export class Tratamiento {
     @Column()
     detalle: string;
   
-    @ManyToOne(() => Paciente, paciente => paciente.tratamientos)
-    paciente: Paciente;
 }

@@ -12,9 +12,6 @@ export class Docentedetalle {
   @Column({ type: 'varchar', length: 255 })
   detalle: string;
 
-  @ManyToOne(() => Docente, docente => docente.detalles)
-  docente: Docente;
-
   @ManyToOne(() => Periodo, periodo => periodo.nombre, { nullable: true })
   periodo: Periodo;
 

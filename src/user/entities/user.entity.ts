@@ -1,15 +1,16 @@
 import { Admini } from "src/admin/entities/admin.entity";
 import { Docente } from "src/docente/entities/docente.entity";
 import { Estudiante } from "src/estudiante/entities/estudiante.entity";
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Role } from "src/roles/entities/role.entity";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'varchar', length: 15 })
-    username: string;
+    @Column({ type: 'varchar', length: 10, unique:true})
+    codigo: string;
 
     @Column({ type: 'varchar', length: 255, unique:true })
     email: string;
@@ -23,13 +24,19 @@ export class User {
     @Column({ type: 'varchar', length: 25})
     rol: string;
 
-    @OneToOne(() => Estudiante, estudiante => estudiante.user, { nullable: true })
-    estudiante: Estudiante;
+    // Relación con Estudiante
+  @OneToOne(() => Estudiante)
+  @JoinColumn()
+  estudiante: Estudiante;
 
-    @OneToOne(() => Docente, docente => docente.user, { nullable: true })
-    docente: Docente;
+  // Relación con Docente
+  @OneToOne(() => Docente)
+  @JoinColumn()
+  docente: Docente;
 
-    @OneToOne(() => Admini, admin => admin.user, { nullable: true })
-    admin: Admini;
+  // Relación con Role
+  @OneToOne(() => Role)
+  @JoinColumn({ name: "rol", referencedColumnName: "nombre" })
+  rolEntity: Role;
 
 }

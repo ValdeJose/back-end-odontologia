@@ -19,9 +19,6 @@ export class Admini {
     @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
 
-    @OneToOne(() => User, user => user.admin)
-    user: User;
-
     @OneToMany(() => Admindetalle, admindetalle => admindetalle.admin)
     admindetalles: Admindetalle[];
 }

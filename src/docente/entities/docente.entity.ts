@@ -4,7 +4,7 @@ import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typ
 
 @Entity()
 export class Docente {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar', length: 85 })
@@ -13,11 +13,14 @@ export class Docente {
     @Column({ type: 'varchar', length: 85 })
     apellido: string;
 
-    @Column({ type: 'varchar', length: 10 })
+    @Column({ type: 'varchar', length: 10, unique:true})
     codigo: string;
 
-    @Column({ type: 'varchar', length: 255})
+    @Column({ type: 'varchar', length: 255, unique:true})
     email: string;
+
+    @Column({ type: 'varchar', length: 20 })
+    password: string;
 
     @Column({ type: 'varchar', length: 12})
     phone: string;
@@ -33,11 +36,5 @@ export class Docente {
 
     @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
-
-    @OneToMany(() => Docentedetalle, docentedetalle => docentedetalle.docente)
-    detalles: Docentedetalle[];
-
-    @OneToOne(() => User, user => user.docente)
-    user: User;
 
 }

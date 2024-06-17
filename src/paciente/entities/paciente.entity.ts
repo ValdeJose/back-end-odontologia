@@ -11,6 +11,9 @@ export class Paciente {
   
     @Column({ type: 'time' })
     HoraCreacion: string;
+
+    @Column({ type: 'varchar', length: 8, unique:true })
+    dni: string;
   
     @Column({ type: 'varchar', length: 50 })
     Nombre: string;
@@ -56,8 +59,5 @@ export class Paciente {
   
     @Column({ type: 'text', nullable: true })
     MotivoConsulta: string;
-  
-    @OneToMany(() => Tratamiento, tratamiento => tratamiento.paciente)
-    tratamientos: Tratamiento[];
-    
+   
 }

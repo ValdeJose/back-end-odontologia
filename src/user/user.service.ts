@@ -16,7 +16,7 @@ export class UserService {
     return this.userRepository.save(createUserDto);
   }
 
-  findonebyEmail(email:string){
+  findOnebyEmail(email:string){
     return this.userRepository.findOneBy({email})
   }
 

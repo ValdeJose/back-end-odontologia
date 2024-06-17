@@ -12,11 +12,14 @@ export class Estudiante {
     @Column({ type: 'varchar', length: 85 })
     apellido: string;
 
-    @Column({ type: 'varchar', length: 10 })
+    @Column({ type: 'varchar', length: 10, unique:true})
     codigo: string;
 
     @Column({ type: 'varchar', length: 255, unique:true })
     email: string;
+
+    @Column({ type: 'varchar', length: 20 })
+    password: string;
 
     @Column({ type: 'varchar', length: 12})
     phone: string;
@@ -30,6 +33,4 @@ export class Estudiante {
     @Column({ type: 'varchar', length: 255, nullable: true })
     firmadigital: string;
 
-    @OneToOne(() => User, user => user.estudiante)
-    user: User;
 }

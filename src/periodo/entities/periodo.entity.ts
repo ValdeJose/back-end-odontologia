@@ -16,6 +16,9 @@ export class Periodo {
   
     @Column()
     fin: Date;
+
+    @Column({ type: 'varchar', length: 50 })
+    sedenom: string;
   
     @ManyToOne(() => Sede, sede => sede.periodos)
     sede: Sede;
