@@ -5,7 +5,7 @@ FROM node:20
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
-COPY package*.json ./
+COPY package.json .
 
 # Instalar las dependencias
 RUN npm install
@@ -21,6 +21,9 @@ EXPOSE 8080
 
 # Definir la variable de entorno para el puerto
 ENV PORT 8080
+
+# set hostname to localhost
+ENV HOSTNAME "0.0.0.0"
 
 # Comando para iniciar la aplicación
 CMD ["npm", "start"]
