@@ -26,8 +26,6 @@ FROM caddy
 
 WORKDIR /app
 
-COPY --from=build /app/dist/odontologia/browser ./dist
-
 COPY Caddyfile ./
 
 CMD exec caddy run --config Caddyfile --adapter caddyfile 2>&1
