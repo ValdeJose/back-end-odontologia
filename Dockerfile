@@ -22,10 +22,10 @@ RUN npm run build
 RUN ls -la
 
 # Comando para iniciar la aplicación
-FROM caddy
-
+FROM node:20
 WORKDIR /app
+COPY package.json .
+RUN npm install --only=production
+COPY --from=build /app/dist ./dist
 
-COPY Caddyfile ./
-
-CMD exec caddy run --config Caddyfile --adapter caddyfile 2>&1
+CMD npm run start:prod
