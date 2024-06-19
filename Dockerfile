@@ -1,14 +1,17 @@
 # Usar una imagen base oficial de Node.js
-FROM node:20
+FROM node:20 AS build
+
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+ENV NPM_CONFIG_FUND=false
 
 # Crear un directorio de trabajo
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 # Instalar las dependencias
-RUN npm install
+RUN npm ci
 
 # Copiar el resto de la aplicación
 COPY . .
@@ -16,11 +19,15 @@ COPY . .
 # Construir la aplicación
 RUN npm run build
 
-# Exponer el puerto que la aplicación va a usar
-EXPOSE 8080
-
-# Definir la variable de entorno para el puerto
-ENV PORT 8080
+RUN ls -la
 
 # Comando para iniciar la aplicación
-CMD ["npm", "start"]
+FROM caddy
+
+WORKDIR /app
+
+COPY --from=build /app/dist/odontologia/browser ./dist
+
+COPY Caddyfile ./
+
+CMD exec caddy run --config Caddyfile --adapter caddyfile 2>&1
