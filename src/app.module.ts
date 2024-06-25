@@ -40,11 +40,11 @@ import { Role } from './roles/entities/role.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '35.188.128.37',
-      port: 3306,
+      host: 'roundhouse.proxy.rlwy.net',
+      port: 54794,
       username: 'root',
-      password: '~]UxAZTA-~<:&[yD',
-      database: 'dentito',
+      password: 'etXqKUTqSxJJZBVpFMEhXNlBVhufyJCQ',
+      database: 'railway',
         entities: [User,Admini, Admindetalle, Cita,Clase, Curso, Docente, Docentedetalle, Estudiante, Estudiantedetalle, Paciente, Periodo, Role ,Sede, Tratamiento],
         synchronize: true
     }),
